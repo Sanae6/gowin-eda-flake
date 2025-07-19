@@ -79,7 +79,6 @@
                 ^cp --no-preserve=ownership -r ${gowinPackage} ./IDE
                 chmod ug+w -R ./IDE
                 $"[license]\nlic=\"($license)\"" | save -f IDE/bin/gwlicense.ini
-                rm ./IDE/bin/gw_sh
                 ls -l ./IDE/bin/* | where {|f| ($"./IDE/bin/.($f.name | path basename)-wrapped" | path exists) and ($f.type == "file")} |
                   each {|f| rm $f.name; ln -s ($"./IDE/bin/.($f.name | path basename)-wrapped" | path expand) ($f.name | path expand)}
                 print "Done!"
