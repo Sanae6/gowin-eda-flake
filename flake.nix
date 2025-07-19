@@ -67,7 +67,9 @@
           inherit system;
         };
         gowinPackages = requiredPackages pkgs;
-        gowinPackage = pkgs.callPackage ./gowin-eda.nix {};
+        gowinPackage = pkgs.callPackage ./gowin-eda.nix {
+          inherit gowinPackages;
+        };
       in
         with pkgs; rec {
           formatter = alejandra;

@@ -4,6 +4,7 @@
   libsForQt5,
   pkgs,
   lib,
+  gowinPackages,
 }:
 stdenv.mkDerivation {
   name = "gowin-eda-ide";
